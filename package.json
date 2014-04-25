@@ -1,0 +1,28 @@
+{
+  "name": "Vadar",
+  "version": "0.0.1",
+  "description": "Scrape twiiter and analyse for like terms",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadar/radar.git"
+  },
+  "keywords": [
+    "data",
+    "scraper"
+  ],
+  "author": "Chris Ivens",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/vadar/radar/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-go": "0.0.4",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
