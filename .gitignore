@@ -21,3 +21,6 @@ _testmain.go
 
 *.exe
 *.test
+bin/*
+node_modules
+src/code.google.com
