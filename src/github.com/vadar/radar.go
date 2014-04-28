@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/vadar"
+	"github.com/vadar/social"
 	"time"
 )
 
 func main() {
 	fmt.Printf("Hello, world.\n")
-	vadar.SocialGrabber()
+	social.SocialGrabber()
+
 	ticker := time.NewTicker(time.Second * 2)
 	timer := time.NewTimer(time.Second * 10)
 
