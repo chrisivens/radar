@@ -8,18 +8,17 @@ import (
 
 func main() {
 	fmt.Printf("Hello, world.\n")
-	social.SocialGrabber()
 
-	ticker := time.NewTicker(time.Second * 2)
-	timer := time.NewTimer(time.Second * 10)
+	ticker := time.Tick(time.Second * 5)
+	socialGrabber := social.NewSocialGrabber()
 
 	for {
 		select {
-		case <-ticker.C:
-			fmt.Println("woop")
-		case <-timer.C:
-			ticker.Stop()
-			return
+		case statuses := <-socialGrabber.C:
+			fmt.Printf("Got statuses: %d\n", len(statuses))
+
+		case <-ticker:
+			go social.RunSocial(socialGrabber)
 		}
 	}
 
