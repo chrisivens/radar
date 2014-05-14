@@ -1,19 +1,25 @@
 package social
 
-import "testing"
-import "github.com/vadar/social"
+import (
+	"testing"
+)
 
 // Test to unmarshal tweets from known file
 // Test to get data from API
 
 func TestSocialFetching(t *testing.T) {
-	statuses, err := social.SocialGrabber()
+	socialGrabber := NewSocialGrabber()
 
-	if err != nil {
-		t.Error("Tweet status not fetching correctly")
-	}
+	go func() {
+		for statuses := range socialGrabber.C {
+			if len(statuses) == 0 {
+				t.Error("Tweets are empty")
+			}
 
-	if len(statuses.Tweets) == 0 {
-		t.Error("Tweets are empty")
-	}
+			return
+		}
+	}()
+
+	RunSocial(socialGrabber)
+
 }

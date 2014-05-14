@@ -60,9 +60,10 @@ func GetTweets() chan []Post {
 }
 
 func TweetFetch(out chan []Post) {
-	path := os.Getenv("GOPATH")
+	// TODO - use the GOPATH and split it to find the right one to use
+	local_path := "/Users/chrisivens/Projects/radar" //os.Getenv("GOPATH")
 
-	fi, err := os.Open(path + "/src/github.com/vadar/social/fixtures/tweets.json")
+	fi, err := os.Open(local_path + "/src/github.com/vadar/social/fixtures/tweets.json")
 	if err != nil {
 		panic(err)
 	}

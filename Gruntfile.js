@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  // require('logfile-grunt')(grunt);
 
   // Project configuration.
   grunt.initConfig({
