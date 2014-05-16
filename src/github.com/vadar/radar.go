@@ -39,7 +39,6 @@ func main() {
 	// collection = database.C("stopwords")
 
 	// fmt.Printf("Collection: %# v", collection)
-
 	for {
 		select {
 		case statuses := <-social_grabber.C:

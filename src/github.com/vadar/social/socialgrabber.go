@@ -10,6 +10,8 @@ type SocialGrabber struct {
 
 type Post struct {
 	Message string
+	Tokens  []string
+	Fields  []string
 }
 
 func NewSocialGrabber() *SocialGrabber {
@@ -30,6 +32,4 @@ func RunSocial(callback *SocialGrabber) {
 		fmt.Printf("Got tweets %d\n", len(tweets))
 		callback.C <- tweets
 	}
-
-	// callback.C <- statuses
 }

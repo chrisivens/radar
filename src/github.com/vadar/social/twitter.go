@@ -86,7 +86,7 @@ func TweetFetch(out chan []Post) {
 	posts := make([]Post, len(statuses.Tweets))
 
 	for i, tweet := range statuses.Tweets {
-		posts[i] = Post{tweet.Text}
+		posts[i] = Post{Message: tweet.Text}
 	}
 
 	out <- posts
@@ -106,7 +106,6 @@ func UnmarshalTweets(reader io.Reader) (Statuses, error) {
 	}
 
 	return tweets, nil
-
 }
 
 func check(e error) {
