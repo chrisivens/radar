@@ -7,7 +7,17 @@ import (
 
 func Tokenise(message string) (tokens, fields []string) {
 	fields = strings.Fields(message)
-	tokens = fields
+
+	tokens = make([]string, 0, len(fields))
+	re := regexp.MustCompile("[^a-zA-Z0-9]")
+
+	for i := 0; i < len(fields); i++ {
+		cleaned := re.ReplaceAllString(fields[i], "")
+
+		if len(cleaned) > 0 {
+			tokens = append(tokens, cleaned)
+		}
+	}
 
 	return
 }
